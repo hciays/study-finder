@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+  <script src="js/jquery-3.5.1.js"></script>
   <link rel="stylesheet" href="fonts/icomoon/style.css">
-
- 
 <head>
   <title>Study Finder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <style>
-    img{
-      width: 300px;
-      height: 150px;
-    }
-  </style>
+
+  <script>
+    $(function () {
+    var includes = $('[data-include]')
+    $.each(includes, function () {
+      var file = $(this).data('include') + '.html'
+      $(this).load(file)
+    })
+  })
+  </script>
+
 </head>
 <body>
-    
-    </div>
-    <footer style="text-align: center;">
-        <div class="row">
-          <div class="col-12">
-            <div class="copyright">
-                <p>
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="icon-heart" aria-hidden="true"></i> by Group 13
-                </p>
-            </div>
-          </div>
-        </div>
-    </footer>
+  <div data-include="header"></div>
+  <div data-include="footer"></div>
 
+  
+
+
+
+
+  
 </body>
 
 </html>
