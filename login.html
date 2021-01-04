@@ -5,7 +5,7 @@
   <title>Study Finder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <script src="js/fakedb.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -30,6 +30,20 @@
       height: 100px;
     }
   </style>
+  <script type="text/javascript">
+    function login() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("pword").value;
+
+      if(email!=null && password!=null)
+        redirect();
+    }
+  </script>
+  <script type="text/javascript">
+    function redirect(){
+      location.replace("../study-finder/homepage.html");
+    }
+  </script>
 </head>
 <body>
     <header>
@@ -63,7 +77,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Log In" class="btn btn-primary btn-lg px-5">
+                            <input type="submit" value="Log In" class="btn btn-primary btn-lg px-5" onclick="login()">
                         </div>
                     </div>
                   </form>
