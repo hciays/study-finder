@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="fonts/font-awesome.css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+ 
+<head>
+  <title>Study Finder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <style>
+    img{
+      width: 200px;
+      height: 100px;
+    }
+    footer {
+      background: #16222A;
+      background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+      background: linear-gradient(59deg, #3A6073, #16222A);
+      color: white;
+      margin-top:500px;
+    }
+    .navigation{
+      height: 10px
+      width:100%;
+      margin: 50px;
+    }
+   .flex-container {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+      flex-wrap: wrap;
+      margin-top: 150px;
+    }
+   h1{
+    text-align: center;
+
+    }
+    table{
+      margin: 0 auto;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top:50px;
+    }
+    th{
+      text-align: center;
+    }
+    button{
+      width: 150px;
+      height: 50px;
+    }
+  </style>
+  <script>
+    function display(test) {
+       var div ="summary";
+       var tab = ["members","files","messages"]
+       if(test==members){
+         div="members";
+         tab.splice(0, 1, "summary");
+       }
+       if(test==files){
+         div="files";
+         tab.splice(1, 1, "summary");
+       }
+       if(test==messages){
+         div="messages";
+         tab.splice(2, 1, "summary");
+       }
+      var x = document.getElementById(div);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        for (var i=0 ; i<tab.length; i++){
+          x = document.getElementById(tab[i]);
+          x.style.display = "none";
+        }
+      } else {
+        x.style.display = "none";
+      }
+    } 
+
+      /* $(document).ready(function() {
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+
+            //>=, not <=
+            if (scroll >= 60) {
+                //clearHeader, not clearheader - caps H
+                $(".navbar").addClass("bg-light");
+            } else {
+            $(".navbar").removeClass("bg-light");
+            }
+        }); //missing );
+        
+        // document ready  
+        }); */
+  </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <header>
+            <div >
+              <a href="login.html">
+                <img src="images/logo.png" alt="Logo">
+              </a>  
+            </div>
+        </header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="position: absolute; right: 20px;">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <div >
+            <a href="profile.html">
+             <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px;"></i> 
+            </a> 
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex-container">
+        <div class="navigation">
+          <a href="login.html">LOGIN</a> >
+          <a href="homepage.html">HOMEPAGE</a> 
+        </div>
+        <div class="content desktop-9-cols" style="width: 100%;">
+            <h1>Welcome to <strong>STUDY FINDER</strong></h1>
+            <table border="0">
+              <tr>
+                <th><button type="button" class="btn btn-dark"><a href="creategroup.html"> Create a group</a></button></th>
+                <th><button type="button" class="btn btn-dark" onclick="display(files)" >Search a group</button></th>
+                <th><button type="button" class="btn btn-dark" onclick="display(members)">Calender</button></th>
+                <th><button type="button" class="btn btn-dark" onclick="display()">Forum</button></th>
+              </tr>
+              <tr>
+                <div id="messages" style=" margin-top: 300px; text-align: center; margin-left:200px; position: fixed;">
+                  <h3>You are not yet a member of any group. You can either <a href="creategroup.html"> create a group</a> or join a group of your choice.</h3>
+                </div>
+              </tr>
+           </table>
+        </div>
+    </div>
+      
+      <footer class="mainfooter" role="contentinfo">
+        <div class="row">
+          <div class="col-md-12 copy">
+            <p style="text-align: center;">
+                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by Group 13
+                  </p>
+          </div>
+        </div>
+      </footer>
+
+    <script src="js/jquery-3.4.1.slim.js"></script>
+    <script src="js/popper.js"></script>   
+    <script src="js/bootstrap.js"></script> 
+</body>
+
+</html>
