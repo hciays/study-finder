@@ -8,7 +8,7 @@
 
  
 <head>
-  <title>Study Finder</title>
+  <title>Study Finder: IT Security</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -48,6 +48,11 @@
     button{
       width: 150px;
     }
+    .navigation{
+      height: 10px;
+      width:100%;
+      margin: 50px;
+    }
   </style>
   <script>
     function display(test) {
@@ -76,6 +81,30 @@
         x.style.display = "none";
       }
     } 
+    function join (){
+        alert('Join Request accepted press OK to continue');
+        var str = document.getElementById("va").innerHTML; 
+        var res = str.replace("Vacancy (3/5)", "Vacancy (4/5)");
+        document.getElementById("va").innerHTML = res;
+
+        document.getElementById("new").innerHTML = "New Memeber";
+        document.getElementById("messagesb").disabled = false;
+        document.getElementById("filesb").disabled = false;
+        document.getElementById("membersb").disabled = false;
+        var x = document.getElementById("leave");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+        str = document.getElementById("mess").innerHTML; 
+        res = str.replace("Click the join button to study with us and wait for your request to be accepted ", "You are Welcome!");
+        document.getElementById("mess").innerHTML = res;
+
+        str = document.getElementById("j").innerHTML; 
+        res = str.replace("Join", "Leave");
+        document.getElementById("j").innerHTML = res;
+    
+
+    }
 
       /* $(document).ready(function() {
         $(window).scroll(function() {    
@@ -121,13 +150,17 @@
       
 
       <div class="flex-container">
+        <div class="navigation">
+            <a href="homepage.html">HOMEPAGE</a>>
+            <a href="securitygroup.html">IT Security Group</a>
+          </div>
         <div class="content desktop-9-cols" style="width: 70%;">
             <h1>Group <strong>HCI</strong> from the <strong>LEIBNIZ UNI-HANNOVER</strong></h1>
             <table border="0">
               <tr>
-                <th><button type="button" class="btn btn-primary" onclick="display(messages)">Messages</button></th>
-                <th><button type="button" class="btn btn-primary" onclick="display(files)" >Files</button></th>
-                <th><button type="button" class="btn btn-primary" onclick="display(members)">Members</button></th>
+                <th><button type="button" class="btn btn-primary" onclick="display(messages)" disabled id="messagesb" >Messages</button></th>
+                <th><button type="button" class="btn btn-primary" onclick="display(files)" disabled id="filesb">Files</button></th>
+                <th><button type="button" class="btn btn-primary" onclick="display(members)" disabled id="membersb">Members</button></th>
                 <th><button type="button" class="btn btn-primary" onclick="display()">Summary</button></th>
               </tr>
               <tr style="margin-top: 250px; position:absolute; top:200px; text-align: center;" valign="middle" >
@@ -135,34 +168,33 @@
                   
                 </div>
                 <div id="files" style="display: none; text-align: center; margin-top: 250px; margin-left: 400px; position: fixed;">
-                  <a href="https://studip.uni-hannover.de/sendfile.php?type=0&file_id=a308ddf0a54d947a8e0fa0ccb1ea9d00&file_name=GMCI-assignment-01.pdf">
-                    <h4>GMCI-assignment-01</h4>
+                  <a href="https://teaching.sec.uni-hannover.de/foundations-ws20/">
+                    <h4>IT Security's Webpage</h4>
                   </a>
-                  <a href="https://www.w3schools.com/">
-                    <h4>Help for HTML CSS Javascript</h4>
+                  <a href="https://studip.uni-hannover.de/sendfile.php?type=0&file_id=628dd1df6ccef3ca7e276befcb97058c&file_name=09a+Web+Security.pdf">
+                    <h4>SQL injection lecture</h4>
                   </a>
                 </div>
                 <div style="display: none; text-align: center; margin-top: 250px; margin-left: 400px; position: fixed;" id="members" >
                   <h5>Saba Jannat</h5>
                   <h5>Eiham Salieba</h5>
-                  <h5>&Ouml;zg&uuml;n Karata&scedil;</h5>
                   <h5>Angelo Yamachui</h5>
+                  <h5 id="new"></h5>
                 </div>
-                <div id="summary" style="display: none; text-align: center; margin-top: 250px; margin-left: 400px; position: fixed;" >
+                <div id="summary" style="display: block; text-align: center; margin-top: 250px; margin-left: 200px; position: fixed;" >
                   <h2>This is summary of the group</h2>
-                  <p>This goup focuses on the basics of Human-Computer Interaction</p>
+                  <p>This goup focuses on the basics of IT Security.</p>
                   <p>We are available everyday from 6:00 PM to 10:00 Pm</p>
-                  <h3>You are Welcome!</h3>
+                  <h3 id="mess">Click the join button to study with us and wait for your request to be accepted </h3>
                 </div>
               </tr>
            </table>
         </div>
     
         <div class="aside" style="margin-left:200px; margin-top: 200px; text-align: center;">
-            <div style="margin: 20px;"><button type="button" class="btn btn-info" style="padding: 16px; margin:0 auto;">Vacancy (4/5)</button></div>
-            <div style="margin: 20px;"><button type="button" class="btn btn-warning" style="padding: 16px; margin:0 auto;">Disable Group</button></div>
-            <div style="margin: 20px;"><button type="button" class="btn btn-warning"style="padding: 16px; margin:0 auto;">Delete Group</button></div>
-            <div style="margin: 20px;"><button type="button" class="btn btn-warning" style="padding: 16px; margin:0 auto;">Leave</button></div>
+            <div style="margin: 20px;"><button type="button" class="btn btn-info" style="padding: 16px; margin:0 auto;" id="va">Vacancy (3/5)</button></div>
+            <div style="margin: 20px;"><button type="button" class="btn btn-secondary" style="padding: 16px; margin:0 auto;" onclick="setTimeout(join, 5000); this.disabled = true;">Join</button></div>
+            <div style="margin: 20px;"><button type="button" class="btn btn-warning" style="padding: 16px; margin:0 auto; display: none;"id="leave">Leave</button></div>
             
         </div>
     

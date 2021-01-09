@@ -25,7 +25,7 @@
       margin-top:500px;
     }
     .navigation{
-      height: 10px
+      height: 10px;
       width:100%;
       margin: 50px;
     }
@@ -56,6 +56,12 @@
     }
   </style>
   <script>
+    function redirect (){
+      window.location="creategroup.html";
+    }
+    function enable () {
+      document.getElementById("search").focus();
+    }
     function display(test) {
        var div ="summary";
        var tab = ["members","files","messages"]
@@ -83,21 +89,33 @@
       }
     } 
 
-      /* $(document).ready(function() {
-        $(window).scroll(function() {    
-            var scroll = $(window).scrollTop();
-
-            //>=, not <=
-            if (scroll >= 60) {
-                //clearHeader, not clearheader - caps H
-                $(".navbar").addClass("bg-light");
-            } else {
-            $(".navbar").removeClass("bg-light");
-            }
-        }); //missing );
-        
-        // document ready  
-        }); */
+    function mySearchFunction() {
+      // Declare variables
+      var input, filter, ul, li, item, i, txtValue;
+      // User Input
+      input = document.getElementById("search");
+      // Filter, makes search not case sensitive
+      filter = input.value.toUpperCase();
+      // Grabs the parent element by id
+      ul = document.getElementById("grouplist");
+      // Individual item on list
+      li = ul.getElementsByTagName("li");
+      var x = document.getElementById("grouplist");
+      // Treats lists items like an array, where each item can be accessed through      it's index
+      for (i = 0; i < li.length; i++) {
+        item = li[i];
+      // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+        txtValue = item.textContent || item.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        // Displays list items that are a match, and nothing if no match
+            x.style.display = "block"; 
+          li[i].style.display = "block";
+    } 
+    else {
+      li[i].style.display = "none";
+    }
+  }
+}
   </script>
 </head>
 <body>
@@ -114,12 +132,17 @@
         </button>
         <div class="collapse navbar-collapse" style="position: absolute; right: 20px;">
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" onkeyup="mySearchFunction()"><br>
+            <ul id="grouplist" style="display: none; margin-top: 200px;">
+              <li><a href="securitygroup.html">Group IT Security: LUH</a></li>
+              <li><a href="securitygroup.html">Group HCI: LUH</a></li>
+              <li><a href="securitygroup.html">Group Software Engineering: LUH</a></li>
+            </ul>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <div >
             <a href="profile.html">
-             <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px;"></i> 
+             <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px; position: static;"></i> 
             </a> 
           </div>
         </div>
@@ -134,14 +157,14 @@
             <h1>Welcome to <strong>STUDY FINDER</strong></h1>
             <table border="0">
               <tr>
-                <th><button type="button" class="btn btn-dark"><a href="creategroup.html"> Create a group</a></button></th>
-                <th><button type="button" class="btn btn-dark" onclick="display(files)" >Search a group</button></th>
+                <th><button type="button" class="btn btn-dark" onclick="redirect()"> Create a group</button></th>
+                <th><button type="button" class="btn btn-dark" onclick="enable()" >Search a group</button></th>
                 <th><button type="button" class="btn btn-dark" onclick="display(members)">Calender</button></th>
                 <th><button type="button" class="btn btn-dark" onclick="display()">Forum</button></th>
               </tr>
               <tr>
                 <div id="messages" style=" margin-top: 300px; text-align: center; margin-left:200px; position: fixed;">
-                  <h3>You are not yet a member of any group. You can either <a href="creategroup.html"> create a group</a> or join a group of your choice.</h3>
+                  <h3>You are not yet a member of any group. You can either <a href="creategroup.html"> create a group</a> or search for one an join it.</h3>
                 </div>
               </tr>
            </table>
