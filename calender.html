@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="fonts/font-awesome.css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+ 
+<head>
+  <title>Study Finder | Calender</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <style>
+    img{
+      width: 200px;
+      height: 100px;
+    }
+    footer {
+      background: #16222A;
+      background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+      background: linear-gradient(59deg, #3A6073, #16222A);
+      color: white;
+      margin-top:500px;
+    }
+    .navigation{
+      height: 10px;
+      width:100%;
+      margin: 50px;
+    }
+   .flex-container {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+      flex-wrap: wrap;
+      margin-top: 150px;
+    }
+   h1{
+    text-align: center;
+
+    }
+    table{
+      margin: 0 auto;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top:50px;
+    }
+    th{
+      text-align: center;
+    }
+    button{
+      width: 150px;
+      height: 50px;
+    }
+    body {
+  width: 50%;
+  margin: 100px auto;
+  font-family: 'Kanit', sans-serif;
+}
+
+.calendar-base {
+  width: 900px;
+  height: 500px;
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+  z-index: -1;
+  color: black;
+}
+
+.year {
+  color: #E8E8E8;
+  font-size: 30px;
+  float: right;
+  position: relative;
+  right: 75px;
+  top: 20px;
+  font-weight: bold;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 10px solid #E8E8E8;
+  border-bottom: 5px solid transparent;
+  float: right;
+  position: relative;
+  right: 90px;
+  top: 36px;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #E8E8E8;
+  border-bottom: 5px solid transparent;
+  float: right;
+  position: relative;
+  left: 20px;
+  top: 36px;
+}
+.triangle-left:hover{
+  border-right: 10px solid#2ECC71;
+}
+.triangle-right:hover{
+  border-left: 10px solid#2ECC71;
+}
+
+.month-color {
+  color: #27AE60;
+}
+.month-hover:hover{
+  color:#27e879 !important;
+}
+
+.months {
+  color: #AAAAAA;
+  position: relative;
+  left: 350px;
+  top: 90px;
+  word-spacing: 10px;
+}
+
+.month-line {
+  border-color: #E8E8E8;
+  position: relative;
+  top: 85px;
+  width: 57%;
+  left: 178px;
+}
+
+.days {
+  color: #AAAAAA;
+  position: relative;
+  font-size: 18px;
+  left: 355px;
+  top: 80px;
+  word-spacing: 35px;
+  font-weight: 600;
+}
+
+.num-dates {
+  float: right;
+  position: relative;
+  top: 110px;
+  right: 50px;
+  z-index: 1;
+}
+
+.first-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.second-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.third-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.fourth-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.fifth-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.sixth-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
+}
+
+.active-day {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #2ECC71;
+  position: relative;
+  top: 195px;
+  left: 515px;
+}
+
+.white {
+  color: white;
+}
+
+.event-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #2980B9;
+  position: relative;
+  top: 204px;
+  left: 535px;
+}
+
+.two {
+  position: relative;
+  top: 168px;
+  left: 537px;
+}
+
+.grey {
+  color: #AAAAB1;
+}
+
+.calendar-left {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: #2ECC71;
+  position: relative;
+  z-index: -1;
+  bottom: 500px;
+  color: white;
+}
+
+.hamburger {
+  position: relative;
+  top: 25px;
+  left: 25px;
+}
+
+.burger-line:hover, .hamburger:hover{
+  background-color:#27e879 !important;
+}
+
+.burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 15%;
+  margin-bottom: 3px;
+}
+
+.num-date {
+  font-size: 150px;
+  width: 50%;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.day {
+  width: 50%;
+  margin: 0px auto;
+  font-size: 30px;
+  position: relative;
+  bottom: 60px;
+}
+
+.current-events {
+  font-size: 15px;
+  position: relative;
+  margin-left: 25px;
+  bottom: 30px;
+}
+
+.posts {
+  text-decoration: underline dotted;
+}
+.posts:hover{
+  color:#27e879 !important;
+}
+
+.create-event {
+  font-size: 18px;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 25px;
+}
+
+.event-line {
+  width: 90%;
+}
+
+.add-event {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border-radius: 50%;
+  border: solid white 2px;
+  position: relative;
+  bottom: 42px;
+  left: 260px;
+}
+
+.add {
+  font-size: 25px;
+  position: relative;
+  left: 4px;
+  bottom: 10px;
+}
+
+.add:hover, .create-event:hover, .add-event:hover{
+  color:#27e879 !important;
+  border-color: #27e879 !important;
+}
+  </style>
+  <script>
+    function redirect (){
+      window.location="creategroup.html";
+    }
+    function enable () {
+      document.getElementById("search").focus();
+    }
+    function display(test) {
+       var div ="summary";
+       var tab = ["members","files","messages"]
+       if(test==members){
+         div="members";
+         tab.splice(0, 1, "summary");
+       }
+       if(test==files){
+         div="files";
+         tab.splice(1, 1, "summary");
+       }
+       if(test==messages){
+         div="messages";
+         tab.splice(2, 1, "summary");
+       }
+      var x = document.getElementById(div);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        for (var i=0 ; i<tab.length; i++){
+          x = document.getElementById(tab[i]);
+          x.style.display = "none";
+        }
+      } else {
+        x.style.display = "none";
+      }
+    } 
+
+    function mySearchFunction() {
+      // Declare variables
+      var input, filter, ul, li, item, i, txtValue;
+      // User Input
+      input = document.getElementById("search");
+      // Filter, makes search not case sensitive
+      filter = input.value.toUpperCase();
+      // Grabs the parent element by id
+      ul = document.getElementById("grouplist");
+      // Individual item on list
+      li = ul.getElementsByTagName("li");
+      var x = document.getElementById("grouplist");
+      // Treats lists items like an array, where each item can be accessed through      it's index
+      for (i = 0; i < li.length; i++) {
+        item = li[i];
+      // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+        txtValue = item.textContent || item.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        // Displays list items that are a match, and nothing if no match
+            x.style.display = "block"; 
+          li[i].style.display = "block";
+    } 
+    else {
+      li[i].style.display = "none";
+    }
+  }
+}
+  </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <header>
+            <div >
+              <a href="login.html">
+                <img src="images/logo.png" alt="Logo">
+              </a>  
+            </div>
+        </header>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="position: absolute; right: 20px;">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" onkeyup="mySearchFunction()"><br>
+            <ul id="grouplist" style="display: none; margin-top: 200px;">
+              <li><a href="securitygroup.html">Group IT Security: LUH</a></li>
+              <li><a href="grouppage.html">Group HCI: LUH</a></li>
+              <li><a href="securitygroup.html">Group Software Engineering: LUH</a></li>
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <div >
+            <a href="profile.html">
+             <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px; position: static;"></i> 
+            </a> 
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex-container">
+        <div class="navigation">
+          <a href="login.html">LOGIN</a> >
+          <a href="homepage.html">HOMEPAGE</a> >
+          <a href="calender.html">YOUR CALENDER</a> 
+        </div>
+        <div class="content desktop-9-cols" style="width: 100%;">
+            <h1>Your calender with schedulded appointments</h1>
+            <div class="container">
+
+                <div class="calendar-base">
+              
+                  <div class="year">2021</div>
+                  <!-- year -->
+              
+                  <div class="triangle-left"></div>
+                  <!--triangle -->
+                  <div class="triangle-right"></div>
+                  <!--  triangle -->
+              
+                  <div class="months">
+                    <strong class="month-color">Jan</strong>
+                    <span class="month-hover">Feb</span> 
+                    <span class="month-hover">Mar</span> 
+                    <span class="month-hover">Apr</span>
+                    <span class="month-hover">May</span>
+                    <span class="month-hover">Jun</span>
+                    <span class="month-hover">July</span> 
+                    <span class="month-hover">Aug</span> 
+                    <span class="month-hover">Sep</span> 
+                    <span class="month-hover">Oct</span> 
+                    <span class="month-hover">Nov</span> 
+                    <span class="month-hover">Dec</span>
+                  </div><!-- months -->
+                  <hr class="month-line" />
+              
+                  <div class="days">SUN MON TUE WED THU FRI SAT</div>
+                  <!-- days -->
+              
+                  <div class="num-dates">
+              
+                    <div class="first-week"><span class="grey">&nbsp;27&nbsp;28&nbsp;29&nbsp;30&nbsp;31</span>&nbsp;01&nbsp;02</div>
+                    <!-- first week -->
+                    <div class="second-week">&nbsp;03&nbsp;04&nbsp;05&nbsp;06&nbsp;07&nbsp;08&nbsp;09</div>
+                    <!-- week -->
+                    <div class="third-week">&nbsp;10&nbsp;11&nbsp;<strong class="white">12</strong>&nbsp;13&nbsp;14&nbsp;15&nbsp;16</div>
+                    <!-- week -->
+                    <div class="fourth-week">&nbsp;17&nbsp;18&nbsp;19&nbsp;20&nbsp;21&nbsp;22&nbsp;23</div>
+                    <!-- week -->
+                    <div class="fifth-week">&nbsp;24&nbsp;25&nbsp;26 27 28 29 30</div>
+                    <!-- week -->
+                    <div class="sixth-week">&nbsp;31 <span class="grey">01 02 03 04 05 06</span></div>
+                    <!-- week -->
+                  </div>
+                  <!-- num-dates -->
+                  <div class="event-indicator"></div>
+                  <!-- event-indicator -->
+                  <div class="active-day"></div>
+                  <!-- active-day -->
+                  <div class="event-indicator two"></div>
+                  <!-- event-indicator -->
+              
+                </div>
+                <!-- calendar-base -->
+                <div class="calendar-left">
+              
+                  <div class="hamburger">
+                    <div class="burger-line"></div>
+                    <!-- burger-line -->
+                    <div class="burger-line"></div>
+                    <!-- burger-line -->
+                    <div class="burger-line"></div>
+                    <!-- burger-line -->
+                  </div>
+                  <!-- hamburger -->
+              
+              
+                  <div class="num-date">12</div>
+                  <!--num-date -->
+                  <div class="day">TUESDAY</div>
+                  <!--day -->
+                  <div class="current-events">Current Events
+                    <br/>
+                    <ul>
+                      <li>HCI Group assignment (7:00 - 11:00 PM)</li>
+                    </ul>
+                    <span class="posts">See post events</span></div>
+                  <!--current-events -->
+              
+                  <div class="create-event">Create an Event</div>
+                  <!-- create-event -->
+                  <hr class="event-line" />
+                  <div class="add-event"><span class="add">+</span></div>
+                  <!-- add-event -->
+              
+                </div>
+                <!-- calendar-left -->
+              
+              </div>
+              <!-- container -->
+        </div>
+    </div>
+      
+      <footer class="mainfooter" role="contentinfo">
+        <div class="row">
+          <div class="col-md-12 copy">
+            <p style="text-align: center;">
+                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by Group 13
+                  </p>
+          </div>
+        </div>
+      </footer>
+
+    <script src="js/jquery-3.4.1.slim.js"></script>
+    <script src="js/popper.js"></script>   
+    <script src="js/bootstrap.js"></script> 
+</body>
+
+</html>

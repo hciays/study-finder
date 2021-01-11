@@ -8,11 +8,16 @@
 
  
 <head>
-  <title>Study Finder</title>
+  <title>Study Finder | HCI Group</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <style>
+    .navigation{
+      height: 10px;
+      width:100%;
+      margin: 50px;
+    }
     img{
       width: 200px;
       height: 100px;
@@ -31,7 +36,7 @@
       flex-wrap: wrap;
       margin-top: 150px;
     }
-   h1{
+   h1,h2{
     text-align: center;
 
     }
@@ -76,6 +81,33 @@
         x.style.display = "none";
       }
     } 
+    function mySearchFunction() {
+      // Declare variables
+      var input, filter, ul, li, item, i, txtValue;
+      // User Input
+      input = document.getElementById("search");
+      // Filter, makes search not case sensitive
+      filter = input.value.toUpperCase();
+      // Grabs the parent element by id
+      ul = document.getElementById("grouplist");
+      // Individual item on list
+      li = ul.getElementsByTagName("li");
+      var x = document.getElementById("grouplist");
+      // Treats lists items like an array, where each item can be accessed through      it's index
+      for (i = 0; i < li.length; i++) {
+        item = li[i];
+      // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+        txtValue = item.textContent || item.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        // Displays list items that are a match, and nothing if no match
+            x.style.display = "block"; 
+          li[i].style.display = "block";
+    } 
+    else {
+      li[i].style.display = "none";
+    }
+  }
+}
 
       /* $(document).ready(function() {
         $(window).scroll(function() {    
@@ -108,7 +140,12 @@
         </button>
         <div class="collapse navbar-collapse" style="position: absolute; right: 20px;">
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" onkeyup="mySearchFunction()"><br>
+            <ul id="grouplist" style="display: none; margin-top: 200px;">
+              <li><a href="securitygroup.html">Group IT Security: LUH</a></li>
+              <li><a href="grouppage.html">Group HCI: LUH</a></li>
+              <li><a href="securitygroup.html">Group Software Engineering: LUH</a></li>
+            </ul>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <div >
@@ -121,8 +158,13 @@
       
 
       <div class="flex-container">
+        <div class="navigation">
+          <a href="homepage.html">HOMEPAGE</a>>
+          <a href="securitygroup.html">HCI Group</a>
+        </div>
         <div class="content desktop-9-cols" style="width: 70%;">
             <h1>Group <strong>HCI</strong> from the <strong>LEIBNIZ UNI-HANNOVER</strong></h1>
+            <h2>You are the administrator of this group</h2>
             <table border="0">
               <tr>
                 <th><button type="button" class="btn btn-primary" onclick="display(messages)">Messages</button></th>

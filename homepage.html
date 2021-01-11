@@ -56,8 +56,14 @@
     }
   </style>
   <script>
-    function redirect (){
-      window.location="creategroup.html";
+    function redirect (value){
+      if(value==null){
+        window.location="creategroup.html";
+      }
+      if(value==1){
+        window.location="calender.html";
+      }
+      
     }
     function enable () {
       document.getElementById("search").focus();
@@ -135,7 +141,7 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" onkeyup="mySearchFunction()"><br>
             <ul id="grouplist" style="display: none; margin-top: 200px;">
               <li><a href="securitygroup.html">Group IT Security: LUH</a></li>
-              <li><a href="securitygroup.html">Group HCI: LUH</a></li>
+              <li><a href="grouppage.html">Group HCI: LUH</a></li>
               <li><a href="securitygroup.html">Group Software Engineering: LUH</a></li>
             </ul>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -159,12 +165,12 @@
               <tr>
                 <th><button type="button" class="btn btn-dark" onclick="redirect()"> Create a group</button></th>
                 <th><button type="button" class="btn btn-dark" onclick="enable()" >Search a group</button></th>
-                <th><button type="button" class="btn btn-dark" onclick="display(members)">Calender</button></th>
+                <th><button type="button" class="btn btn-dark" onclick="redirect(1)">Calender</button></th>
                 <th><button type="button" class="btn btn-dark" onclick="display()">Forum</button></th>
               </tr>
               <tr>
                 <div id="messages" style=" margin-top: 300px; text-align: center; margin-left:200px; position: fixed;">
-                  <h3>You are not yet a member of any group. You can either <a href="creategroup.html"> create a group</a> or search for one an join it.</h3>
+                  <h3>You are not yet a member of any group. You can either create a group or search for one an join it.</h3>
                 </div>
               </tr>
            </table>
