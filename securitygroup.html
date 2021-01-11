@@ -82,12 +82,12 @@
       }
     } 
     function join (){
-        alert('Join Request accepted press OK to continue');
+        alert('Join Request accepted. Press OK to continue');
         var str = document.getElementById("va").innerHTML; 
         var res = str.replace("Vacancy (3/5)", "Vacancy (4/5)");
         document.getElementById("va").innerHTML = res;
 
-        document.getElementById("new").innerHTML = "New Memeber";
+        document.getElementById("new").innerHTML = "New Member";
         document.getElementById("messagesb").disabled = false;
         document.getElementById("filesb").disabled = false;
         document.getElementById("membersb").disabled = false;
@@ -98,11 +98,30 @@
         str = document.getElementById("mess").innerHTML; 
         res = str.replace("Click the join button to study with us and wait for your request to be accepted ", "You are Welcome!");
         document.getElementById("mess").innerHTML = res;
-
-        str = document.getElementById("j").innerHTML; 
-        res = str.replace("Join", "Leave");
-        document.getElementById("j").innerHTML = res;
     
+
+    }
+    function leave (){
+        var str = document.getElementById("va").innerHTML; 
+        var res = str.replace("Vacancy (4/5)", "Vacancy (3/5)");
+        document.getElementById("va").innerHTML = res;
+
+        var str = document.getElementById("new").innerHTML; 
+        var res = str.replace("New Member", "");
+        document.getElementById("new").innerHTML = res;
+
+        document.getElementById("messagesb").disabled = true;
+        document.getElementById("filesb").disabled = true;
+        document.getElementById("join").disabled = false;
+        document.getElementById("membersb").disabled = true;
+        var x = document.getElementById("leave");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+    }
+        str = document.getElementById("mess").innerHTML; 
+        res = str.replace( "You are Welcome!", "Click the join button to study with us and wait for your request to be accepted ");
+        document.getElementById("mess").innerHTML = res; 
+        alert('You successfully left this group. Press OK to continue');
 
     }
     function mySearchFunction() {
@@ -221,11 +240,30 @@
               </tr>
            </table>
         </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <p>Do you really want to leave this group?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" onclick="leave()" data-dismiss="modal" >Yes</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
     
         <div class="aside" style="margin-left:200px; margin-top: 200px; text-align: center;">
             <div style="margin: 20px;"><button type="button" class="btn btn-info" style="padding: 16px; margin:0 auto;" id="va">Vacancy (3/5)</button></div>
-            <div style="margin: 20px;"><button type="button" class="btn btn-secondary" style="padding: 16px; margin:0 auto;" onclick="setTimeout(join, 5000); this.disabled = true;">Join</button></div>
-            <div style="margin: 20px;"><button type="button" class="btn btn-warning" style="padding: 16px; margin:0 auto; display: none;"id="leave">Leave</button></div>
+            <div style="margin: 20px;"><button type="button" id="join" class="btn btn-secondary" style="padding: 16px; margin:0 auto;" onclick="setTimeout(join, 5000); this.disabled = true;">Join</button></div>
+            <div style="margin: 20px;"><button type="button" class="btn btn-warning" style="padding: 16px; margin:0 auto; display: none;"id="leave" data-target="#myModal" data-toggle="modal">Leave</button></div>
             
         </div>
     
