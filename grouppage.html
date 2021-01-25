@@ -55,6 +55,19 @@
     }
   </style>
   <script>
+    function redirect (value){
+      if(value==null){
+        window.location="creategroup.html";
+      }
+      if(value==1){
+        window.location="calender.html";
+      }
+      if(value==3){
+        window.location="login.html";
+        alert("Successfully logged out");
+      }
+      
+    }
     function display(test) {
        var div ="summary";
        var tab = ["members","files","messages"]
@@ -105,6 +118,8 @@
     } 
     else {
       li[i].style.display = "none";
+      alert("No results found. Press OK and try again");
+      location.reload();
     }
   }
 }
@@ -142,16 +157,21 @@
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" onkeyup="mySearchFunction()"><br>
             <ul id="grouplist" style="display: none; margin-top: 200px;">
-              <li><a href="securitygroup.html">Group IT Security: LUH</a></li>
-              <li><a href="grouppage.html">Group HCI: LUH</a></li>
-              <li><a href="securitygroup.html">Group Software Engineering: LUH</a></li>
+              <li><a href="securitygroup.html">IT Security: Group from LUH</a></li>
+              <li><a href="grouppage.html">HCI: Group from LUH</a></li>
+              <li><a href="securitygroup.html">Software Engineering: Group from TU Berlin</a></li>
             </ul>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
-          <div >
-            <a href="profile.html">
-             <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px;"></i> 
-            </a> 
+          <div class="btn-group">
+            <i class=" fa fa-user fa-3x" aria-hidden="true" style="margin-left: 20px; position: static;"></i>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100px;">
+              <span></span>
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" onclick="redirect(2)">Profile</button>
+              <button class="dropdown-item" onclick="redirect(3)">Logout</button>
+            </div>
           </div>
         </div>
       </nav>
